@@ -1,7 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+builder.WebHost.UseUrls("http://*:5000;http://localhost:7205");
 
+var app = builder.Build();
 app.Map("/index", () => "");
 app.Map("/about/{name}", async (HttpContext context, string name) =>
 {
